@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a href="{% url 'vehicle_add' %}" class="btn btn-primary mb-3">+ Add New Vehicle</a>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Image</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Price</th>
+                <th>Available</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vehicle in vehicles %}
+            <tr>
+                <td>
+                    {% if vehicle.image %}
+                        <img src="{{ vehicle.image.url }}" height="60">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+                <td>{{ vehicle.brand }}</td>
+                <td>{{ vehicle.model_name }}</td>
+                <td>{{ vehicle.year }}</td>
+                <td>₹{{ vehicle.price }}</td>
+                <td>{{ vehicle.is_available }}</td>
+                <td>
+                    <a href="{% url 'vehicle_detail' vehicle.pk %}" class="btn btn-sm btn-info">View</a>
+                    <a href="{% url 'vehicle_update' vehicle.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'vehicle_delete' vehicle.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr><td colspan="7" class="text-center">No vehicles found.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

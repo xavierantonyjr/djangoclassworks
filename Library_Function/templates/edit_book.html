@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h2>EDIT BOOK DETAILS</h2>
+  <div class="card shadow-sm w-50">
+    <div class="card-body">
+  <form method="POST" enctype="multipart/form-data" class="mt-4">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+    <a href="{% url 'books:viewbook' %}" class="btn btn-secondary mt-3 ms-2">Cancel</a>
+  </form>
+    </div>
+  </div>
+{% endblock %}

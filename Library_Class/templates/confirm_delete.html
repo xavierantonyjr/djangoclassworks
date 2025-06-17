@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+<div class="container my-4 d-flex justify-content-center">
+    <div class="card bg-light p-4" style="width: 100%; max-width: 600px; border-radius: 15px;">
+        <form method="post">
+            {% csrf_token %}
+            <h4>Are you sure you want to delete "<strong>{{ object.title }}</strong>"?</h4>
+            <div class="text-center mt-4 d-flex justify-content-between">
+                <a href="{% url 'books:viewbook' %}" class="btn btn-success">Cancel</a>
+                <a href="{% url 'books:edit_book' object.pk %}" class="btn btn-primary">Edit</a>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

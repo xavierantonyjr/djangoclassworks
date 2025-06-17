@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}DailyCalorie{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <div class="card p-4 shadow-sm" style="width: 50%; ">
+        <h2 class="mb-4" style="color: red;">Daily Calorie Claculator</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-primary">Calculate</button>
+            </form>
+        {% if result %}
+            <div class="alert alert-info mt-4">
+              Daily calories required to maintain weight: <strong>{{ result }}</strong>
+            </div>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="text-center mb-4">
+    <h2>Welcome, {{ user.username }}</h2>
+    <p class="lead">This is your admin dashboard.</p>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-users-gear"></i> Manage Users</h5>
+          <a href="#" class="btn btn-outline-primary btn-sm">Go</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-database"></i> View Data</h5>
+          <a href="#" class="btn btn-outline-success btn-sm">View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</h5>
+          <a href="{% url 'signout' %}" class="btn btn-outline-danger btn-sm">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-key"></i> Change Password</h5>
+          <a href="{% url 'password_change' %}" class="btn btn-outline-secondary btn-sm">Change Password</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

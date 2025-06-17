@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div>
+        <a href="{% url 'books:home' %}" class="btn btn-primary">
+            <i class="fa-solid fa-house"></i> Home
+        </a>
+    </div>
+<main class="box">
+    <h1 class="main-title">Add a New Book</h1>
+
+    <form method="POST" enctype="multipart/form-data" class="form-container">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i> Add Book
+        </button>
+    </form>
+</main>
+{% endblock %}

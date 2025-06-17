@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Staff Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="text-center mb-4">
+    <h2>Welcome, {{ user.first_name }}</h2>
+    <p class="lead">This is your staff dashboard.</p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-chalkboard-user"></i> Manage Classes</h5>
+          <a href="#" class="btn btn-outline-primary btn-sm">View Classes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-user-pen"></i> Student Reports</h5>
+          <a href="#" class="btn btn-outline-success btn-sm">Access Reports</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</h5>
+          <a href="{% url 'signout' %}" class="btn btn-outline-danger btn-sm">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-key"></i> Change Password</h5>
+          <a href="{% url 'password_change' %}" class="btn btn-outline-secondary btn-sm">Change Password</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

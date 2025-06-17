@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="box">
+  <h1 class="main-title">Search Books</h1>
+
+  {% if books %}
+    <h2>Results for "{{ request.POST.q }}":</h2>
+    <ul>
+      {% for book in books %}
+        <li>{{ book.title }} by {{ book.author }} - ₹{{ book.price }}</li>
+      {% endfor %}
+    </ul>
+  {% elif request.method == "POST" %}
+    <p>No results found for "{{ request.POST.q }}"</p>
+  {% endif %}
+</main>
+{% endblock %}

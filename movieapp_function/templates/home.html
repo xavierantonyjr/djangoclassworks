@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Movie Store{% endblock %}
+{% block content %}<div class="container mt-4">
+    <h1 class="mb-4">Movie List</h1>
+    <div class="row mt-5">
+        {% for m in movies %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="{{ m.image.url }}" class="card-img-top" style="height: 250px; object-fit: cover;" alt="{{ m.movie_name }}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ m.movie_name }}</h5>
+                    <p class="card-text">{{ m.description }}</p>
+                    <p class="card-text"><strong>Director:</strong> {{ m.directors_name }}</p>
+                    <p class="card-text"><strong>Language:</strong> {{ m.language }}</p>
+                    <p class="card-text"><strong>Year:</strong> {{ m.year }}</p>
+                    <a href="{% url 'movie_detail' m.id %}" class="btn btn-primary mt-auto">Select Movie</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No movies found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

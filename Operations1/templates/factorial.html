@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Factorial Calculation{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <div class="card p-4 shadow-sm my-div" style="width: 40%;">
+        <h2 class="mb-4" style="color: red;">Factorial Calculation</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="num1" class="form-label" style="color: red;">Enter a Number:</label>
+                <input type="number" name="num1" id="num1" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate Factorial</button>
+
+            {% if fact %}
+            <div class="alert alert-info mt-4">
+                Factorial: <strong>{{ fact }}</strong>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</main>
+{% endblock %}

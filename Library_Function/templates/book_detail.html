@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title">{{ book.title }}</h2>
+      <p><strong>Description:</strong> {{ book.description }}</p>
+      <table class="table table-bordered table-striped text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Year</th>
+            <th>Pages</th>
+            <th>Language</th>
+            <th>Cover Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ book.author }}</td>
+            <td>{{ book.price}}</td>
+            <td>{{ book.year }}</td>
+            <td>{{ book.pages }}</td>
+            <td>{{ book.language }}</td>
+            <td><img src="{{ book.cover_image.url }}" height="200px;" width="150px;"></td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="{% url 'books:home' %}" class="btn btn-primary mt-3">Home</a>
+    </div>
+  </div>
+{% endblock %}

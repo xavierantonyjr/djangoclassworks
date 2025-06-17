@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Addition Operation{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <div class="card p-4 shadow-sm my-div" style="width: 40%;">
+        <h2 class="mb-4" style="color: red;">Addition Operation</h2>
+        <form method="POST" class="needs-validation">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="num1" class="form-label" style="color: red;">First Number:</label>
+                <input type="number" name="num1" id="num1" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="num2" class="form-label" style="color: red;">Second Number:</label>
+                <input type="number" name="num2" id="num2" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+
+            {% if result is not None %}
+            <div class="alert alert-info mt-4">
+                Result: <strong>{{ result }}</strong>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</main>
+{% endblock %}

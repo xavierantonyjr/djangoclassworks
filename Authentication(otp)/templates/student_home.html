@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="text-center mb-4">
+    <h2>Welcome, {{ user.first_name }}</h2>
+    <p class="lead">This is your student dashboard.</p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-book-open-reader"></i> My Courses</h5>
+          <a href="#" class="btn btn-outline-primary btn-sm mt-2">Go to Courses</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-file-lines"></i> My Grades</h5>
+          <a href="#" class="btn btn-outline-success btn-sm mt-2">View Grades</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</h5>
+          <a href="{% url 'signout' %}" class="btn btn-outline-danger btn-sm mt-2">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0">
+      <div class="card-body text-center">
+        <h5 class="card-title"><i class="fa-solid fa-key"></i> Change Password</h5>
+        <a href="{% url 'password_change' %}" class="btn btn-outline-secondary btn-sm mt-2">Change Password</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

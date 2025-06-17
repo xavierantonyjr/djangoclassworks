@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <div class="card p-4 shadow-sm my-div" style="width: 55%; min-height:300px;">
+        <h2 class="mb-4" style='color: red;'>Welcome To Arithmetic Operations</h2>
+      <!-- Buttons -->
+        <div class="button-group mt-5">
+            <a href="{% url 'app1:addition' %}" class="btn btn-primary">
+                <i class="fa-solid fa-calculator"></i> Calculate Sum
+            </a>
+            <a href="{% url 'app1:factorial' %}" class="btn btn-primary">
+                <i class="fa-solid fa-exclamation"></i> Calculate Factorial
+            </a>
+            <a href="{% url 'app1:bmi' %}" class="btn btn-primary">
+                <i class="fa-solid fa-weight-scale"></i> Calculate BMI
+            </a>
+        </div>
+    </div>
+</main>
+{% endblock %}

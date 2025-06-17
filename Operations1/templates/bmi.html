@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}BMI Calculation{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <div class="card p-4 shadow-sm my-div" style="width: 40%;">
+        <h2 class="mb-4" style="color: red;">BMI Calculator</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="weight" class="form-label" style="color: red;">Enter Your Weight (kg):</label>
+                <input type="number" step="0.1" name="weight" id="weight" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="height" class="form-label" style="color: red;">Enter Your Height (cm):</label>
+                <input type="number" step="0.01" name="height" id="height" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate BMI</button>
+
+            {% if bmi %}
+            <div class="alert alert-info mt-4">
+                Your BMI: <strong>{{ bmi }}</strong><br>
+                Category: <strong>{{ category }}</strong>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</main>
+{% endblock %}

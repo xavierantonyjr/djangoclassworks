@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+  <style>
+  body {
+    background-color: black;
+    color: red;
+}
+  table {
+    border: 1px solid black;
+    width: 70%;
+    margin: 20px auto;
+    background-color: white;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+  }
+    h1 {
+    text-align: center;
+    }
+  </style>
+</head>
+<body>
+<h1>Employee List</h1>
+<button><a href="{% url 'emp:employee_create' %}">Add Employee</a></button>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Designation</th>
+      <th>Place</th>
+      <th>Department Name</th>
+      <th>Image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for emp in employee %}
+  <tr>
+    <td>{{ emp.name }}</td>
+    <td>{{ emp.age }}</td>
+    <td>{{ emp.salary }}</td>
+    <td>{{ emp.designation }}</td>
+    <td>{{ emp.place }}</td>
+    <td>{{ emp.department_name }}</td>
+    <td><img src="{{ emp.image.url }}" height="200px;" width="150px;"></td>
+    <td>
+        <a href="{% url 'emp:employee_details' emp.id %}">Details</a><br>
+        <a href="{% url 'emp:employee_update' emp.id %}">Edit</a><br>
+        <a href="{% url 'emp:employee_delete' emp.id %}">Delete</a><br>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>

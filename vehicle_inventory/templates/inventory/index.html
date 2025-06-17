@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Vehicle Inventory{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Welcome to the Vehicle Inventory System</h2>
+            <p>Manage your vehicle inventory efficiently.</p>
+        </div>
+    <h1>Vehicle Inventory</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{% url 'vehicle_add' %}" class="btn btn-primary mb-3">Add New Vehicle</a>
+        </div>
+    </div>
+
+{% endblock %}
